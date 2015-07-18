@@ -68,7 +68,7 @@ class DistSensorDataViaXBeePublisher(XBeeDataPublisher):
         #     packet += hex(byteToInt(data)) + '/'
         # print(packet)
 
-        self._dist = byteToInt(binary_data.data[-2]) * 256 + byteToInt(binary_data.data[-1])
+        self._dist = byteToInt(binary_data.data[-2])* 0x100 + byteToInt(binary_data.data[-1])
         print(self._dist)
         self._pub_data = self._dist
 
